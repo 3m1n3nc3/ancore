@@ -5,7 +5,7 @@
  * Classifies errors into network, validation, or contract errors and logs them locally.
  */
 
-import { ErrorMessage, getErrorMessage, getFallbackErrorMessage } from './error-messages';
+import { ErrorMessage, getErrorMessage } from './error-messages';
 
 /**
  * Error categories for classification

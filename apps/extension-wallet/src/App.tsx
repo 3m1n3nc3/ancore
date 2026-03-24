@@ -14,7 +14,6 @@ import {
   ErrorBoundary,
   useErrorHandler,
   handleError,
-  ErrorCategory,
   withErrorHandling,
   createRetryable,
 } from './errors';
@@ -38,7 +37,7 @@ function DataFetcher(): JSX.Element {
   const [error, setError] = useState<Error | null>(null);
 
   // Use the error handler hook for manual error dispatching
-  const { dispatch, reset } = useErrorHandler();
+  const { reset } = useErrorHandler();
 
   const fetchData = useCallback(async () => {
     setLoading(true);
@@ -136,11 +135,8 @@ async function fetchUserBalance(userId: string): Promise<string> {
   return data.balance;
 }
 
-// Wrap the function with error handling - using type assertion for demo
-const fetchUserBalanceWithErrorHandling = withErrorHandling(
-  fetchUserBalance as any,
-  'fetchUserBalance'
-);
+// Wrap function with error handling (example utility export usage)
+void withErrorHandling(fetchUserBalance as any, 'fetchUserBalance');
 
 /**
  * Example component using createRetryable

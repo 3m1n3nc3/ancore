@@ -70,7 +70,9 @@ function ChangePasswordView({ onDone }: { onDone: () => void }) {
           type="password"
           placeholder="Enter current password"
           value={form.current}
-          onChange={(e) => setForm((f) => ({ ...f, current: e.target.value }))}
+          onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+            setForm((f) => ({ ...f, current: e.target.value }))
+          }
         />
       </div>
       <div className="space-y-1">
@@ -82,7 +84,9 @@ function ChangePasswordView({ onDone }: { onDone: () => void }) {
             type={showNext ? 'text' : 'password'}
             placeholder="Min. 8 characters"
             value={form.next}
-            onChange={(e) => setForm((f) => ({ ...f, next: e.target.value }))}
+            onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+              setForm((f) => ({ ...f, next: e.target.value }))
+            }
             className="pr-10"
           />
           <button
@@ -102,7 +106,9 @@ function ChangePasswordView({ onDone }: { onDone: () => void }) {
           type="password"
           placeholder="Repeat new password"
           value={form.confirm}
-          onChange={(e) => setForm((f) => ({ ...f, confirm: e.target.value }))}
+          onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+            setForm((f) => ({ ...f, confirm: e.target.value }))
+          }
         />
       </div>
       {error && (
@@ -253,7 +259,7 @@ function ExportWarningView({
           type="password"
           placeholder="Enter password to continue"
           value={password}
-          onChange={(e) => setPassword(e.target.value)}
+          onChange={(e: React.ChangeEvent<HTMLInputElement>) => setPassword(e.target.value)}
         />
       </div>
       {error && <p className="text-xs text-destructive">{error}</p>}
